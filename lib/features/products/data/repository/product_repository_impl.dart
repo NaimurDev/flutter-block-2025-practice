@@ -16,7 +16,7 @@ class ProductRepositoryImpl implements ProductRepository{
 
   @override
   Future<List<Product>> getProducts() async{
-    final resp = await client.get('/products', queryParams: {'_limit': '10', '_page': '1'});
+    final resp = await client.get('/products', queryParams: {'limit': '10', 'offset': '0'});
     if(resp.statusCode == 200){
       final List<dynamic> body = json.decode(resp.body);
       return body.map((e) => Product.fromJson(e)).toList();
