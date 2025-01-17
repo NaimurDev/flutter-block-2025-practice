@@ -13,8 +13,8 @@ class ProductServiceImpl implements ProductService{
   }
 
   @override
-  Future<List<Product>> getProducts() {
-    return productRepository.getProducts();
+  Future<List<Product>> getProducts({int offset = 0}) {
+    return productRepository.getProducts(offset: offset);
   }
 
 }

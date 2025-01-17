@@ -9,6 +9,11 @@ class LoadProducts extends ProductBlocEvent {
   List<Object> get props => [];
 }
 
+class LoadNextProducts extends ProductBlocEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class DeleteProduct extends ProductBlocEvent {
   final int productId;
 
