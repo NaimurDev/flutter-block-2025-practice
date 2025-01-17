@@ -1,16 +1,44 @@
-# lets_learn_bloc
+Equatable
+CopyWith
+Freezed
+BlocObserver
+Debounce
+Streams
+Transformers
+Hydrated BLoC
+Error Handling
+MultiBLoC
+emit
+watch
+read
+BlocProvider 
+MultiBlocProvider
+BlocBuilder 
+BlocListener
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Provider
+StateProvider
+FutureProvider
+StreamProvider
+StateNotifier
+StateNotifierProvider
+ChangeNotifier
+ChangeNotifierProvider
+Notifier
+NotifierProvider
+AutoDispose
+Provider Family
+Ref
+Consumer
+ConsumerWidget
+ConsumerState
+ConsumerStatefulWidget
+ProviderSelector
+AsyncValue
+Riverpod Hydrated
+Override Providers
+ScopedProvider
+ProviderContainer
+Stream Transformers
+Custom Debounce Logic
+ProviderObserver
