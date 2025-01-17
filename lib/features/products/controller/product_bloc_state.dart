@@ -14,14 +14,17 @@ class ProductBlocLoading extends ProductBlocState {
   @override
   List<Object> get props => [];
 }
-
 class ProductBlocLoaded extends ProductBlocState {
   final List<Product> products;
+  final bool isLoadingMore;
 
-  const ProductBlocLoaded({required this.products});
+  const ProductBlocLoaded({
+    required this.products,
+    this.isLoadingMore = false,
+  });
 
   @override
-  List<Object> get props => [products];
+  List<Object> get props => [products, isLoadingMore];
 }
 
 class ProductBlocError extends ProductBlocState {

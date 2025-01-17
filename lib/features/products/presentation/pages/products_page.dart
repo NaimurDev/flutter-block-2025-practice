@@ -33,10 +33,12 @@ class _ProductsPageState extends State<ProductsPage> {
       if (state is ProductBlocLoaded) {
         return ProductPageBody(
           products: state.products,
+          isLoadingMore: state.isLoadingMore,
         );
       }
       return ProductPageBody(
         products: [],
+        isLoadingMore: false,
       );
     });
   }

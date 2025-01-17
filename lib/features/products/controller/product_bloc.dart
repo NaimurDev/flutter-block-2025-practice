@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lets_learn_bloc/features/products/controller/product_bloc_event.dart';
 import 'package:lets_learn_bloc/features/products/controller/product_bloc_state.dart';
+import 'package:lets_learn_bloc/features/products/domain/models/product.dart';
 import 'package:lets_learn_bloc/features/products/domain/services/product_sevice.dart';
 
 class ProductBloc extends Bloc<ProductBlocEvent, ProductBlocState>{
@@ -34,14 +35,28 @@ class ProductBloc extends Bloc<ProductBlocEvent, ProductBlocState>{
     }
   }
 
-  void _loadNextEvent(event, emit) async{
+  void _loadNextEvent(LoadNextProducts event, Emitter<ProductBlocState> emit) async {
+  if (state is ProductBlocLoaded) {
+    final currentState = state as ProductBlocLoaded;
     currentOffset += 10;
-    // emit(ProductBlocLoading());
-    try{
-      final products = await productService.getProducts(offset: currentOffset);
-      emit(ProductBlocLoaded(products: [...(state as ProductBlocLoaded).products, ...products]));
-    }catch(e){
+
+    // Emit state indicating that loading more products has started
+    emit(ProductBlocLoaded(
+      products: currentState.products,
+      isLoadingMore: true,
+    ));
+
+    try {
+      final newProducts = await productService.getProducts(offset: currentOffset);
+      final allProducts = List<Product>.from(currentState.products)..addAll(newProducts);
+      
+      emit(ProductBlocLoaded(
+        products: allProducts,
+        isLoadingMore: false,
+      ));
+    } catch (e) {
       emit(ProductBlocError(message: e.toString()));
     }
   }
+}
 }
